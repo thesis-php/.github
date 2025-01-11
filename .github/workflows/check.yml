@@ -5,7 +5,7 @@ on:
         description: PHP versions in JSON array format
         type: string
         required: false
-        default: '["8.1", "8.2", "8.3"]'
+        default: '["8.3"]'
       dependencies:
         description: Dependency versions (locked, lowest, highest) in JSON array format
         type: string
