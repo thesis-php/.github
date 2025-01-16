@@ -4,13 +4,17 @@ on:
       php_versions:
         description: PHP versions in JSON array format
         type: string
-        required: false
         default: '["8.3"]'
       dependencies:
         description: Dependency versions (locked, lowest, highest) in JSON array format
         type: string
-        required: false
         default: '["locked", "lowest", "highest"]'
+      test:
+        type: boolean
+        default: true
+      infection:
+        type: boolean
+        default: true
     secrets:
       COMPOSER_AUTH:
         required: false
@@ -78,6 +82,7 @@ jobs:
       - run: composer phpstan -- --error-format=github
 
   test:
+    if: inputs.test
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -107,6 +112,7 @@ jobs:
           CODECOV_TOKEN: ${{ secrets.codecov-token }}
 
   infection:
+    if: inputs.test && inputs.infection
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
