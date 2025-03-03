@@ -9,6 +9,12 @@ on:
         description: Dependency versions (locked, lowest, highest) in JSON array format
         type: string
         default: '["locked", "lowest", "highest"]'
+      phpstan:
+        type: boolean
+        default: true
+      psalm:
+        type: boolean
+        default: false
       test:
         type: boolean
         default: true
@@ -61,6 +67,7 @@ jobs:
       - run: composer fixcs -- --dry-run --format=checkstyle | cs2pr
 
   phpstan:
+    if: inputs.phpstan
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -80,6 +87,28 @@ jobs:
         env:
           COMPOSER_AUTH: ${{ secrets.COMPOSER_AUTH || '{}' }}
       - run: composer phpstan -- --error-format=github
+
+  psalm:
+    if: inputs.psalm
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php: ${{ fromJson(inputs.php_versions) }}
+        dependencies: ${{ fromJson(inputs.dependencies) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          tools: composer:v2
+          coverage: none
+      - uses: ramsey/composer-install@v3
+        with:
+          composer-options: --optimize-autoloader
+          dependency-versions: ${{ matrix.dependencies }}
+        env:
+          COMPOSER_AUTH: ${{ secrets.COMPOSER_AUTH || '{}' }}
+      - run: composer psalm -- --stats --output-format=github ${{ (matrix.php == fromJson(inputs.php_versions)[0]) && (matrix.dependencies == fromJson(inputs.dependencies)[0]) && '--shepherd' || '' }}
 
   test:
     if: inputs.test
