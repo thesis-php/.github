@@ -118,7 +118,6 @@ jobs:
         php: ${{ fromJson(inputs.php_versions) }}
         dependencies: ${{ fromJson(inputs.dependencies) }}
     steps:
-      - run: echo "${{ secrets.CODECOV_TOKEN && '1' || '' }}"
       - id: coverage
         run: |
           echo "coverage=${{ secrets.CODECOV_TOKEN && (matrix.php == fromJson(inputs.php_versions)[0]) && (matrix.dependencies == fromJson(inputs.dependencies)[0]) && '1' || '' }}" >> $GITHUB_OUTPUT
