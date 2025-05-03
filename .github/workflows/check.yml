@@ -126,6 +126,8 @@ jobs:
         with:
           php-version: ${{ matrix.php }}
           ini-file: development
+          extensions: pcntl
+          ini-values: disable_functions=pcntl_fork
           tools: composer:v2
           coverage: ${{ steps.coverage.outputs.coverage && 'pcov' || '' }}
       - uses: ramsey/composer-install@v3
