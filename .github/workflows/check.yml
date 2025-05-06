@@ -11,7 +11,7 @@ on:
         default: '["locked", "lowest", "highest"]'
       rector:
         type: boolean
-        default: false
+        default: true
       phpstan:
         type: boolean
         default: true
