@@ -9,6 +9,9 @@ on:
         description: Dependency versions (locked, lowest, highest) in JSON array format
         type: string
         default: '["locked", "lowest", "highest"]'
+      rector:
+        type: boolean
+        default: false
       phpstan:
         type: boolean
         default: true
@@ -65,6 +68,23 @@ jobs:
         env:
           COMPOSER_AUTH: ${{ secrets.COMPOSER_AUTH || '{}' }}
       - run: composer fixcs -- --dry-run --format=checkstyle | cs2pr
+
+  rector:
+    if: inputs.rector
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ fromJSON(inputs.php_versions)[0] }}
+          tools: composer:v2
+          coverage: none
+      - uses: ramsey/composer-install@v3
+        with:
+          composer-options: --optimize-autoloader
+        env:
+          COMPOSER_AUTH: ${{ secrets.COMPOSER_AUTH || '{}' }}
+      - run: composer rector -- --dry-run
 
   phpstan:
     if: inputs.phpstan
