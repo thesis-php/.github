@@ -50,8 +50,7 @@ jobs:
         env:
           COMPOSER_AUTH: ${{ secrets.COMPOSER_AUTH || '{}' }}
       - run: composer normalize --dry-run
-      - run: composer check-require
-      - run: composer check-unused
+      - run: composer analyse-deps
 
   php-cs-fixer:
     runs-on: ubuntu-latest
