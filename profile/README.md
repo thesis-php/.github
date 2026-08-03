@@ -6,6 +6,10 @@
 
 [thesis/protoc-plugin](https://github.com/thesis-php/protoc-plugin) — a php plugin for protobuf compiler (protoc).
 
+[thesis/grpc-logging](https://github.com/thesis-php/grpc-logging) — PSR-3 logging interceptors for thesis/grpc.
+
+[thesis/grpc-retry](https://github.com/thesis-php/grpc-retry) — Configurable retry interceptors (unary, stream) for the thesis/grpc-client.
+
 ## Queue drivers
 
 [thesis/amqp](https://github.com/thesis-php/amqp) — pure non-blocking strictly typed full-featured PHP driver for AMQP 0.9.1 protocol.
