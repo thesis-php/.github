@@ -10,6 +10,8 @@
 
 [thesis/grpc-retry](https://github.com/thesis-php/grpc-retry) — Configurable retry interceptors (unary, stream) for the thesis/grpc-client.
 
+[thesis/grpc-auth](https://github.com/thesis-php/grpc-auth) — Authentication interceptors for thesis/grpc. 
+
 ## Queue drivers
 
 [thesis/amqp](https://github.com/thesis-php/amqp) — pure non-blocking strictly typed full-featured PHP driver for AMQP 0.9.1 protocol.
