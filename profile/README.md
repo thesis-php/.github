@@ -12,6 +12,8 @@
 
 [thesis/grpc-auth](https://github.com/thesis-php/grpc-auth) — Authentication interceptors for thesis/grpc. 
 
+[thesis/grpc-deadline](https://github.com/thesis-php/grpc-deadline) — Client-side deadline interceptor for thesis/grpc.
+
 ## Queue drivers
 
 [thesis/amqp](https://github.com/thesis-php/amqp) — pure non-blocking strictly typed full-featured PHP driver for AMQP 0.9.1 protocol.
