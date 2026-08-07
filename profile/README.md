@@ -4,10 +4,11 @@
 - [thesis/protobuf](https://github.com/thesis-php/protobuf) — a modern strictly typed full-featured serializer for Google's protocol buffers.
 - [thesis/protoc-plugin](https://github.com/thesis-php/protoc-plugin) — a php plugin for protobuf compiler (protoc).
 - [thesis/grpc-logging](https://github.com/thesis-php/grpc-logging) — PSR-3 logging interceptors for thesis/grpc.
-- [thesis/grpc-retry](https://github.com/thesis-php/grpc-retry) — Configurable retry interceptors (unary, stream) for the thesis/grpc-client.
-- [thesis/grpc-auth](https://github.com/thesis-php/grpc-auth) — Authentication interceptors for thesis/grpc. 
-- [thesis/grpc-deadline](https://github.com/thesis-php/grpc-deadline) — Client-side deadline interceptor for thesis/grpc.
-- [thesis/grpc-health](https://github.com/thesis-php/grpc-health) — Standard gRPC health checking protocol for thesis/grpc.
+- [thesis/grpc-retry](https://github.com/thesis-php/grpc-retry) — configurable retry interceptors (unary, stream) for the thesis/grpc-client.
+- [thesis/grpc-auth](https://github.com/thesis-php/grpc-auth) — authentication interceptors for thesis/grpc. 
+- [thesis/grpc-deadline](https://github.com/thesis-php/grpc-deadline) — client-side deadline interceptor for thesis/grpc.
+- [thesis/grpc-health](https://github.com/thesis-php/grpc-health) — standard gRPC health checking protocol for thesis/grpc.
+- [thesis/grpc-samples](https://github.com/thesis-php/grpc-samples) — runnable gRPC samples for the thesis stack. 
 
 ## Queue drivers
 
