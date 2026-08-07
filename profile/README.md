@@ -18,3 +18,6 @@
 ## Time
 
 - [thesis/time-span](https://github.com/thesis-php/time-span) — time capabilities library. 
+
+## DB
+- [thesis/etcd](https://github.com/thesis-php/etcd) — non-blocking PHP client for etcd v3: KV, watch, leases and locks over gRPC.
